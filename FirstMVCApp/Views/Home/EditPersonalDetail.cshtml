@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "EditPersonalDetail";
+}
+
+<h1>EditPersonalDetail</h1>
+
+
+@model PersonalDetail
+@{ ViewData["Title"] = "PersonalDetail"; }
+
+<h2>Here is @Html.DisplayFor(x => Model.FirstName)'s details</h2>
+
+@Html.ActionLink("Back to Persons", "Persons", "Home", null, new { @class = "btn btn-secondary" })
+
+@using (Html.BeginForm("EditPersonalDetail", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(x => Model.PersonalDetailId)
+    <table border="1" class="table table-bordered">
+        <tr>
+            <th>Particular</th>
+            <th>Details</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.FirstName)</td>
+            <td>@Html.TextBoxFor(x => Model.FirstName)</td>
+            <td>@Html.ValidationMessageFor(x => Model.FirstName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.Address)</td>
+            <td>@Html.TextBoxFor(x => Model.Address)</td>
+            <td>@Html.ValidationMessageFor(x => Model.Address)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.Age)</td>
+            <td>@Html.TextBoxFor(x => Model.Age)</td>
+            <td>@Html.ValidationMessageFor(x => Model.Age)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.Occupation)</td>
+            <td>@Html.TextBoxFor(x => Model.Occupation)</td>
+            <td>@Html.ValidationMessageFor(x => Model.Occupation)</td>
+        </tr>
+
+    </table>
+
+    <button type="submit" class="btn btn-primary btn-block">Update</button>
+
+
+}

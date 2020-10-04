@@ -1,0 +1,35 @@
+﻿@model PersonalDetail
+@{
+    ViewData["Title"] = "PersonalDetail";
+}
+
+<h1>Personal Detail</h1>
+<h2>Here is @Html.DisplayFor(x => Model.FirstName)'s details</h2>
+
+<table border="1" class="table table-bordered">
+    <tr>
+        <th>Particular</th>
+        <th>Details</th>
+    </tr>
+    
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.FirstName)</td>
+        <td>@Html.DisplayFor(x => Model.FirstName)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.Address)</td>
+        <td>@Html.DisplayFor(x => Model.Address)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.Age)</td>
+        <td>@Html.DisplayFor(x => Model.Age)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.Occupation)</td>
+        <td>@Html.DisplayFor(x => Model.Occupation)</td>
+    </tr>
+
+</table>
+
+@Html.ActionLink("Back to Persons", "Persons", "Home", null, new { @class = "btn btn-secondary"})
+
