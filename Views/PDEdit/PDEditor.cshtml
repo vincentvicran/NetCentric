@@ -1,0 +1,37 @@
+﻿@model List<PersonalDetails>
+@{
+    ViewData["Title"] = "PDEditor";
+    int counter = 1;
+}
+
+<h1>Personal Details</h1>
+@Html.ActionLink("Add new person details", "CreatePersonDetail", "PDEdit", null, new { })
+
+<h2>Editor</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>SN.</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Occupation</th>
+            <th colspan="2">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@counter</td>
+            <td>@item.FirstName</td>
+            <td>@item.Address</td>
+            <td>@item.Occupation</td>
+            <td>@Html.ActionLink("View", "PersonalDetails", "PDEdit", new { personDetailsID = item.PersonalDetailsID }, new { @class = "btn btn-primary" })</td>
+            <td>@Html.ActionLink("Edit", "PersonalDetailsEdit", "PDEdit", new { personDetailsID = item.PersonalDetailsID }, new { @class = "btn btn-secondary" })</td>
+        </tr>
+            counter++;
+        }
+    </tbody>
+</table>
+

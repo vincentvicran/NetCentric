@@ -1,0 +1,34 @@
+﻿@model PersonalDetails
+@{
+    ViewData["Title"] = "PersonalDetails";
+}
+
+<h1>PersonalDetails</h1>
+
+@Html.ActionLink("Person List", "PDEditor", "PDEdit", null, new { @class = "btn btn-primary" })
+
+<table border="1">
+    <tr>
+        <td>Particular</td>
+        <td>Details</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.FirstName)</td>
+        <td>@Html.DisplayFor(x => x.FirstName)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.Address)</td>
+        <td>@Html.DisplayFor(x => x.Address)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.Age)</td>
+        <td>@Html.DisplayFor(x => x.Age)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.Occupation)</td>
+        <td>@Html.DisplayFor(x => x.Occupation)</td>
+    </tr>
+
+
+</table>
+

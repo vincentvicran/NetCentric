@@ -1,0 +1,41 @@
+﻿@model PersonalDetails
+@{
+    ViewData["Title"] = "CreatePersonDetail";
+}
+
+<h1>PersonalDetails</h1>
+
+@Html.ActionLink("Person List", "PDEditor", "PDEdit", null, new { @class = "btn btn-primary" })
+
+@using (Html.BeginForm("CreatePersonDetail", "PDEdit", FormMethod.Post))
+{
+    @Html.HiddenFor(x => Model.PersonalDetailsID)
+    <table border="1">
+        <tr>
+            <td>Particular</td>
+            <td>Details</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.FirstName)</td>
+            <td>@Html.TextBoxFor(x => x.FirstName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.Address)</td>
+            <td>@Html.TextBoxFor(x => x.Address)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.Age)</td>
+            <td>@Html.TextBoxFor(x => x.Age)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(x => x.Occupation)</td>
+            <td>@Html.TextBoxFor(x => x.Occupation)</td>
+        </tr>
+        <tr>
+            <td><button type="submit"><i class="btn btn-secondary"></i>Submit</button></td>
+        </tr>
+    </table>
+}
+
+
+
