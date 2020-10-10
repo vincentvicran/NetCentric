@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TestingNetNetCore.Models;
+using FirstMVCApp.Models;
 
 namespace FirstMVCApp.Models
 {
@@ -21,6 +21,7 @@ namespace FirstMVCApp.Models
                     FirstName = "Hari Krishna",
                     Address = "Gothatar, Kathmandu",
                     Age = 56,
+                    DOB = new DateTime(1998, 10, 12),
                     Occupation = "Doctor",
                 };
                 detailList.Add(hari);
@@ -45,6 +46,7 @@ namespace FirstMVCApp.Models
                     FirstName = "Adit Dahal",
                     Address = "Dudhpati, Bhaktapur",
                     Age = 24,
+                    DOB = new DateTime(1998, 10, 12),
                     Occupation = "Farmer"
                 };
                 detailList.Add(adit);
@@ -57,6 +59,7 @@ namespace FirstMVCApp.Models
                     FirstName = "Bhanu Shrestha",
                     Address = "Dudhpati, Bhaktapur",
                     Age = 24,
+                    DOB = new DateTime(1998, 10, 12),
                     Occupation = "Student",
                 };
                 detailList.Add(bhanu);
@@ -69,6 +72,7 @@ namespace FirstMVCApp.Models
                     FirstName = "Saurav Dhami",
                     Address = "Gothatar, Kathmandu",
                     Age = 56,
+                    DOB = new DateTime(1998, 10, 12),
                     Occupation = "Student",
                 };
                 detailList.Add(saurav);
@@ -82,6 +86,7 @@ namespace FirstMVCApp.Models
                     FirstName = "Nikita Shrestha",
                     Address = "Gothatar, Kathmandu",
                     Age = 56,
+                    DOB = new DateTime(1998, 10, 12),
                     Occupation = "Student"
                 };
                 detailList.Add(nikita);
@@ -89,6 +94,11 @@ namespace FirstMVCApp.Models
             }
             return detailList;
         }
+
+        public static string GetDateInFormat(DateTime dt)
+        {
+            return dt.ToString("yyyy-MM-dd");
         }
     }
+}
 

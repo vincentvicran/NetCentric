@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TestingNetNetCore.Models
+namespace FirstMVCApp.Models
 {
     public class PersonalDetail
     {
@@ -16,52 +16,28 @@ namespace TestingNetNetCore.Models
         // properties
         public int PersonalDetailId { get; set; }
 
-        [Required(ErrorMessage = "Name is required property")]
+        [Required(ErrorMessage = "Name is required!")]
         [DisplayName("Full Name *")]
         public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
 
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "Age is required")]
-        [Range(18, 30, ErrorMessage = "Age must be between 18 and 30")]
+        [Required(ErrorMessage = "Age is required!")]
+        [Range(18, 30, ErrorMessage = "Age must be between 18 and 30!")]
         [DisplayName("Age *")]
         public int Age { get; set; }
 
         public string Occupation { get; set; }
 
-    }
+        public Decimal weight { get; set; } 
 
-    /* public class DoctorProfile : PersonalDetail
-    {
-
-        public DoctorProfile(List<PersonalDetail> persons) : base(persons)
-        {
-        }
-        public string Qualification { get; set; }
-        public string HospitalClinic { get; set; }
-        public string Speciality { get; set; }
+        public DateTime DOB { get; set; }
 
     }
-    public class TeacherProfile : PersonalDetail
-    {
-        public TeacherProfile(List<PersonalDetail> persons) : base(persons)
-        {
-        }
-        public string Qualification { get; set; }
-        public string College { get; set; }
-        public string AssociatedSubjects { get; set; }
-    }
-    public class StudentProfile : PersonalDetail
-    {
-        public StudentProfile(List<PersonalDetail> persons) : base(persons)
-        {
-        }
-        public string Faculty { get; set; }
-        public string College_School { get; set; }
-        public string Rollno { get; set; }
 
-    } */
-
+    
     
 
 }

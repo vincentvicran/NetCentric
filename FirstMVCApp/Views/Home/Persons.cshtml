@@ -8,39 +8,56 @@
 <table border="1" class="table table-bordered">
     <thead>
         <tr>
-            <th>Personal Detail Id</th>
-            <th>Name</th>
+            <th>SN.</th>
+            <th colspan="3">Name</th>
             <th>Address</th>
             <th>Occupation</th>
+            <th>DOB</th>
+            <th>Current Date</th>
+            <th>Currrent Time</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach(var person in Model)
         {
-        <tr>
-            <td>@person.PersonalDetailId</td>
-            <td>@person.FirstName</td>
-            <td>@person.Address</td>
-            <td>@person.Occupation</td>
-            <td>
-                @Html.ActionLink("Details", "PersonalDetails", "Home", new { personDetailId = person.PersonalDetailId }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Edit", "EditPersonalDetail", "Home", new { personDetailId = person.PersonalDetailId }, new { @class = "btn btn-warning" })
-                        @Html.ActionLink("Delete", "DeletePerson", "Home", new { personDetailId = person.PersonalDetailId }, new { @class = "btn btn-danger" })
-            </td>
-            @*@if (person.Occupation == "Doctor")
-        {
-            <td>@person.</td>
-        }
-        else if (person.Occupation == "Studet")
-        {
-            <td></td>
-        }
-        else
-        {
-            <td></td>
-        }*@
-        </tr>
+            string fullName = person.FirstName + " " + person.MiddleName + " " + person.LastName;
+            int fullNameLenght = fullName.Length;
+            if (fullNameLenght > 15)
+            {
+                if (person.MiddleName != null)
+                {
+                    var characterarray = person.MiddleName.ToCharArray();
+                    fullName = person.FirstName + " " + (String.IsNullOrEmpty(person.MiddleName) ? "" : person.MiddleName.Substring(0, 1).ToUpper() + " ") + person.LastName;
+                }
+                else
+                {
+                    fullName = person.FirstName + " " + person.LastName;
+                }
+
+
+                fullNameLenght = fullName.Length;
+                if (fullNameLenght > 15)
+                {
+                    fullName = person.FirstName.Substring(0, 1) + " " + (person.MiddleName == null ? "" : person.MiddleName.Substring(0, 1) + " ").ToUpper() + person.LastName;
+                }
+            }
+
+            <tr>
+                <td>@person.PersonalDetailId</td>
+                <td colspan="3">@person.FirstName</td>
+                <td>@person.Address</td>
+                <td>@person.Occupation</td>
+                <td>@PersonMemory.GetDateInFormat(person.DOB)</td>
+                <td>@PersonMemory.GetDateInFormat(System.DateTime.Now)</td>
+                <td>@System.DateTime.Now.ToString("hh-mm-ss")</td>
+                <td>
+                    @Html.ActionLink("Details", "PersonalDetails", "Home", new { personDetailId = person.PersonalDetailId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Edit", "EditPersonalDetail", "Home", new { personDetailId = person.PersonalDetailId }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Delete", "DeletePerson", "Home", new { personDetailId = person.PersonalDetailId }, new { @class = "btn btn-danger" })
+                </td>
+
+            </tr>
         }
     </tbody>
 </table>

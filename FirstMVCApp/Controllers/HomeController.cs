@@ -7,7 +7,7 @@ using FirstMVCApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using TestingNetNetCore.Models;
+
 
 namespace TestingNetNetCore.Controllers
 {

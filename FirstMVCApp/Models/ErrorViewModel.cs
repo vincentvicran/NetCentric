@@ -1,6 +1,6 @@
 using System;
 
-namespace TestingNetNetCore.Models
+namespace FirstMVCApp.Models
 {
     public class ErrorViewModel
     {
