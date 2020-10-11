@@ -102,13 +102,18 @@ namespace TestingNetNetCore.Controllers
         [HttpPost]
         public IActionResult CreatePerson(PersonalDetail person)
         {
-            var personDetailList = PersonMemory.GetPersons();
-            int personsCount = personDetailList.Count;
-            person.PersonalDetailId = ++personsCount;
+            if (ModelState.IsValid)
+            {
+                var personDetailList = PersonMemory.GetPersons();
+                int personsCount = personDetailList.Count;
+                person.PersonalDetailId = ++personsCount;
 
-            personDetailList.Add(person);
+                personDetailList.Add(person);
+                return RedirectToAction("Persons");
+            }
 
-            return RedirectToAction("Persons");
+            else
+                return View(person);
         }
 
         public IActionResult DeletePerson(int personDetailId)
