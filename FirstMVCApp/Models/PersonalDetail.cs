@@ -35,6 +35,12 @@ namespace FirstMVCApp.Models
 
         public DateTime DOB { get; set; }
 
+        /*[Required(ErrorMessage = "An image file is required!!!")]*/
+        [DisplayName("ProfileImage")]
+        public string ImageLocation { get; set; }
+
+        //temporary viewback for size limit to the image file
+        public string ErrorMsg { get; set; }
     }
 
     
